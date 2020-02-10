@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 
 class Question extends Model
 {
+    // comment
     protected $fillable = [
         'title',
         'body'
