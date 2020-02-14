@@ -79,7 +79,7 @@ class QuestionsController extends Controller
     {
         $question->update($request->only('title', 'body'));
 
-        return redirect()->route('questions.index')->with('success','Your question has beed updated',3);
+        return redirect()->route('questions.index')->with('success','Your question has beed updated');
     }
 
     /**
@@ -88,8 +88,10 @@ class QuestionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Question $question)
     {
-        //
+        $question->delete();
+
+        return redirect()->route('questions.index')->with('success','Your question has beed deleted');
     }
 }
