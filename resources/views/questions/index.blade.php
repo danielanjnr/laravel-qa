@@ -32,12 +32,18 @@
                             <div class="media-body">
                                 <div class="d-flex align-items-center">
                                     <h3 class="mt-0"><a href="{{ $question->url }}">{{ $question->title }}</a></h3>
-                                    <div class="ml-auto"><a href="{{ route('questions.edit', $question->id) }}" class="btn btn-sm btn-outline-primary">Edit</a></div>
-                                    <form method="post" class="form-delete" action="{{ route('questions.destroy', $question->id ) }}">
-                                        @method('DELETE')
-                                        @csrf
-                                        <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure?')">Delete</button>
-                                    </form>
+                                    <div class="ml-auto">
+                                        @can('update', $question)
+                                            <a href="{{ route('questions.edit', $question->id) }}" class="btn btn-sm btn-outline-primary">Edit</a>
+                                        @endcan
+                                        @can('delete', $question)
+                                            <form method="post" class="form-delete" action="{{ route('questions.destroy', $question->id ) }}">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                                            </form>
+                                        @endcan
+                                    </div>
                                 </div>
                                 {{ str_limit($question->body, 250) }}
                                 <p class="lead">
