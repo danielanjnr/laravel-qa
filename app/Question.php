@@ -13,6 +13,10 @@ class Question extends Model
         'body'
     ];
 
+    public function answers(){
+        return $this->hasMany(Answer::class);
+    }
+
     public function user(){
         return $this->belongsTo(User::class);
     }
@@ -37,7 +41,7 @@ class Question extends Model
     }
 
     public function getStatusAttribute(){
-        if($this->answers > 0){
+        if($this->answers_count > 0){
             
             if($this->best_answer){
                 return 'answered-accepted';
