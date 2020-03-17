@@ -47,4 +47,13 @@ class User extends Authenticatable
         return '#';
     }
 
+    public function getAvatarAttribute(){
+        $email = $this->email;
+        $size = 32;
+
+        // return "https://www.gravitar.com/avatar/" . md5( strtolower( trim( $email ) )) . "?s=" . $size;
+        return 'http://www.doppelme.com/DM1682608FX2/avatar.gif?width=36';
+        
+    }
+
 }

@@ -27,7 +27,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         //add binding for question slug in order to use route model binding on url
         Route::bind('slug', function($slug){
-            $question = Question::where('slug', $slug)->first();
+            $question = Question::with('answers.user')->where('slug', $slug)->first();
 
             return $question ?? abort(404);
         });
