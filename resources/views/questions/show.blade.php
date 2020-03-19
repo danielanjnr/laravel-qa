@@ -20,7 +20,7 @@
                         <div class="d-flex flex-column vote-controls">
                             <a title="This question is useful" class="vote-up"><i class="fas fa-caret-up fa-3x"></i></a>
                             <span class="votes-count">1230</span>
-                            <a title="This question is not useful" class="vote-down"><i class="fas fa-caret-down  fa-3x"></i></a>
+                            <a title="This question is not useful" class="vote-down off"><i class="fas fa-caret-down  fa-3x"></i></a>
                             <a title="click to mark as a favourite question (click again to undo)" class="favourite mt-2 favourited">
                                 <i class="fas fa-star  fa-2x"></i>
                                 <span class="favourites-count">1230</span>
@@ -59,12 +59,13 @@
                             <div class="d-flex flex-column vote-controls">
                                 <a title="This answer is useful" class="vote-up"><i class="fas fa-caret-up fa-3x"></i></a>
                                 <span class="votes-count">1230</span>
-                                <a title="This answer is not useful" class="vote-down"><i class="fas fa-caret-down  fa-3x"></i></a>
+                                <a title="This answer is not useful" class="vote-down off"><i class="fas fa-caret-down  fa-3x"></i></a>
                                 <a title="Mark this answer as best answer" class="vote-accepted mt-2">
                                     <i class="fas fa-check  fa-2x"></i>
                                     <span class="favourites-count">1230</span>
                                 </a>
                             </div>
+
                             <div class="media-body">
                                 {!! $answer->body_html !!}
                                 <div class="float-right">
